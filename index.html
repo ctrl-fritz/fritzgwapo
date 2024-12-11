@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number System Converter</title>
+    <style>
+        /* Reset and General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: gray;
+            color:#03ff03;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        nav {
+            width: 100%;
+            background-color: rgb(255, 0, 0);
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+        }
+
+
+        header {
+            background-color: black;
+            padding: 2rem 1rem;
+            text-align: center;
+            width: 100%;
+            
+        }
+
+        header h1 {
+            text-shadow: 1px 1px 0px rgb(0, 255, 8);
+            margin-bottom: 0.5rem;
+            font-size: 2.8rem;
+            font-weight: 600;
+        }
+
+        header p {
+            text-shadow: 1px 1px 0px rgb(0, 255, 8);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: black;
+        }
+
+        .content-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem auto;
+            
+        }
+
+        .calculator-section,
+        .table-section {
+            flex: 1;
+            background-color: #060000;
+            padding: 2rem;
+            color: rgb(0, 255, 8);
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-section h2,
+        .table-section h2 {
+            margin-bottom: 1rem;
+            color: rgb(0, 255, 8);
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+            color:#03ff03;
+            
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            color:#03ff03;
+            border: 1px solid#03ff03;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            background-color: black;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: rgb(3, 255, 3);
+            color:#03ff03
+        }
+
+        .result {
+            padding: 1rem;
+            background-color: black;
+            border: 1px solid #03ff03;
+            border-radius: 8px;
+            text-align: center;
+            color:#03ff03;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            color: #03ff03;
+        }
+
+        th,
+        td {
+            border: 1px solid #03ff03;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: black;
+        }
+
+        tr:nth-child(even) {
+            background-color: black;
+        }
+
+        tr:hover {
+            background-color: black;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: black;
+            color: #ecf0f1;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        
+    </style>
+<script defer data-domain="sanchez.tiiny.site" src="https://analytics.tiiny.site/js/plausible.js"></script><script type="text/javascript" src="https://tiiny.host/ad-script.js"></script></head>
+<body>
+    
+
+    <header>
+        <h1>Number System Converter</h1>
+        <p>Effortlessly transform numbers between Binary, Decimal, Octal, and Hexadecimal systems.</p>
+    </header>
+
+    <div class="content-container">
+        <!-- Calculator Section -->
+        <div class="calculator-section">
+            <h2>Number System Conversion Calculator</h2>
+            <label for="baseSelector">Select Input Base:</label>
+            <select id="baseSelector">
+                <option value="2">Binary</option>
+                <option value="8">Octal</option>
+                <option value="10">Decimal</option>
+                <option value="16">Hexadecimal</option>
+            </select>
+
+            <label for="inputNumber">Enter Number:</label>
+            <input type="text" id="inputNumber" placeholder="Enter a number" />
+
+            <div id="conversionResults" class="result">
+                <h2>Conversions:</h2>
+                <p id="decimalResult">Decimal: -</p>
+                <p id="octalResult">Octal: -</p>
+                <p id="binaryResult">Binary: -</p>
+                <p id="hexadecimalResult">Hexadecimal: -</p>
+            </div>
+
+            
+        </div>
+        
+        <!-- Table Section -->
+        <div class="table-section">
+            <h2>Number Conversion Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Decimal</th>
+                        <th>Binary</th>
+                        <th>Octal</th>
+                        <th>Hexadecimal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+                    <tr><td>2</td><td>10</td><td>2</td><td>2</td></tr>
+                    <tr><td>3</td><td>11</td><td>3</td><td>3</td></tr>
+                    <tr><td>4</td><td>100</td><td>4</td><td>4</td></tr>
+                    <tr><td>5</td><td>101</td><td>5</td><td>5</td></tr>
+                    <tr><td>6</td><td>110</td><td>6</td><td>6</td></tr>
+                    <tr><td>7</td><td>111</td><td>7</td><td>7</td></tr>
+                    <tr><td>8</td><td>1000</td><td>10</td><td>8</td></tr>
+                    <tr><td>9</td><td>1001</td><td>11</td><td>9</td></tr>
+                    <tr><td>10</td><td>1010</td><td>12</td><td>A</td></tr>
+                    <tr><td>11</td><td>1011</td><td>13</td><td>B</td></tr>
+                    <tr><td>12</td><td>1100</td><td>14</td><td>C</td></tr>
+                    <tr><td>13</td><td>1101</td><td>15</td><td>D</td></tr>
+                    <tr><td>14</td><td>1110</td><td>16</td><td>E</td></tr>
+                    <tr><td>15</td><td>1111</td><td>17</td><td>F</td></tr>
+                    <tr><td>16</td><td>10000</td><td>20</td><td>10</td></tr>
+                    <tr><td>17</td><td>10001</td><td>21</td><td>11</td></tr>
+                    <tr><td>18</td><td>10010</td><td>22</td><td>12</td></tr>
+                    <tr><td>19</td><td>10011</td><td>23</td><td>13</td></tr>
+                    <tr><td>20</td><td>10100</td><td>24</td><td>14</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Number System Converter | Created by: JOHN FRITZ NAVARRA</a></p>
+        <p>For more details, contact: fritznavarra241@gmail.com</a> | Phone number: 09934682337|
+        <a href="https://www.facebook.com/fritz.navarra">FB: FRITZ NAVARRA</a></p>
+        
+    </footer>
+    <script>
+        function updateResults() {
+            const baseSelector = document.getElementById('baseSelector').value;
+            const inputNumber = document.getElementById('inputNumber').value.trim();
+            const binaryResult = document.getElementById('binaryResult');
+            const octalResult = document.getElementById('octalResult');
+            const decimalResult = document.getElementById('decimalResult');
+            const hexadecimalResult = document.getElementById('hexadecimalResult');
+
+            try {
+                // Convert the input number to decimal based on the selected base
+                let decimalValue;
+
+                if (baseSelector === "2") {
+                    decimalValue = parseInt(inputNumber, 2);
+                } else if (baseSelector === "8") {
+                    decimalValue = parseInt(inputNumber, 8);
+                } else if (baseSelector === "10") {
+                    decimalValue = parseInt(inputNumber, 10);
+                } else if (baseSelector === "16") {
+                    decimalValue = parseInt(inputNumber, 16);
+                } else {
+                    throw new Error("Invalid base selected.");
+                }
+
+                if (isNaN(decimalValue)) throw new Error("Invalid input! Please enter a valid number for the selected base.");
+
+                // Update conversion results
+                decimalResult.textContent = `Decimal: ${decimalValue}`;
+                binaryResult.textContent = `Binary: ${decimalValue.toString(2)}`;
+                octalResult.textContent = `Octal: ${decimalValue.toString(8)}`;
+                hexadecimalResult.textContent = `Hexadecimal: ${decimalValue.toString(16).toUpperCase()}`;
+            } catch (error) {
+                decimalResult.textContent = `Decimal: -`;
+                binaryResult.textContent = `Binary: -`;
+                octalResult.textContent = `Octal: -`;
+                hexadecimalResult.textContent = `Hexadecimal: -`;
+            }
+        }
+
+        document.getElementById('baseSelector').addEventListener('change', updateResults);
+        document.getElementById('inputNumber').addEventListener('input', updateResults);
+    </script>
+</body>
+</html>
